@@ -35,18 +35,7 @@ h1{
     padding: 0px;
 }
 
-nav {
-    background-color: #f8f9fa;
-    padding: 10px;
-    text-align: left;
-}
 
-nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-}
 
 .mainContent {
     background-color: rgba(0, 0, 0, 0.8); 
