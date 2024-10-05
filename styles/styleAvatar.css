@@ -1,13 +1,6 @@
-#mrunameHeader{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;  
+.avatarInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 0.5fr 1fr;
 }
 
-#questsHeader {
-
-}
-
-#contactHeader {
-
-}
