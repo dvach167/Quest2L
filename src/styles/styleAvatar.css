@@ -19,3 +19,17 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr;
 }
+.xpBox{
+    width: 100%;
+    background-color: grey;
+}
+.skill{
+    text-align: right;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.xp{
+    width: 50%;
+    background-color: green;
+}
