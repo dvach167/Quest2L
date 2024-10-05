@@ -11,53 +11,35 @@
     <link rel="stylesheet" href="styles/styleAvatar.css">
     <link rel="stylesheet" href="styles/styleMain.css">
     <title>Avatar Page</title>
-   
 </head>
-
 <body class="wrapper">
-    <header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">MRU Name</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                    <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="index.html">Avatar</a>
-                    <a class="nav-link" href="pages/quest.html">Quest Board</a>
-                    <a class="nav-link" href="pages/contact.html">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <body class="container">
-        <div>
+    <nav id="nav">
+        <div id="mruName">MRU Name</div>
+        <a href="index.html" id="avatarLink">Avatar</a>
+        <a href="pages/quest.html" id="questLink">Quests</a>
+        <a href="pages/quest.html" id="contactLink">Contact</a>
+    </nav>
+    <div class="mainPage">
         <!-- Avatar Display Section -->
-            <div id="avatarDisplay" class="row">
+        <div id="avatarDisplay">
 
-            </div>
-            <div id="xpBar">
-                
-            </div>
         </div>
-
-        <div>
-            <!-- Quest Ranks and Board -->
-             <div class="row" id="questRanks">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
-                    <li class="list-group-item">A fourth item</li>
-                    <li class="list-group-item">And a fifth one</li>
-                </ul>
-             </div>
-            <div class="row" id="questBoard">
-
-            </div>
+        <div id="xpBar">
+                    
         </div>
-    </body>
+        <!-- Quest Ranks and Board -->
+        <div id="questRanks">
+            <ul>
+                <li>An item</li>
+                <li>A second item</li>
+                <li>A third item</li>
+                <li>A fourth item</li>
+                <li>And a fifth one</li>
+            </ul>
+        </div>
+        <div id="questBoard">
+
+        </div>
+    </div>
 </body>
 </html>
