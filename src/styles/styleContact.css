@@ -11,88 +11,104 @@
     padding: 10px;
     margin: 10px;
 }
-.container{
-max-width: 1200px;
-margin: 0 auto;
-padding: 20px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pixelify Sans', sans-serif;
+    background-color: #f0f0f0;
+    color: #333;
 }
 
 h1, h2, h3 {
-text-align: center;
-color: #333;
+    text-align: center;
 }
 
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+nav {
+    background-color: #f8f9fa;
+    padding: 10px;
+    text-align: left;
+}
+
+nav a {
+    margin-right: 20px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+/* Main form section */
 .mainContent {
-background-color: rgba(0, 0, 0, 0.5);
-color: #fff;
-padding: 20px;
-border: 1px solid #fff;
-border-radius: 10px;
-margin: 20px;
+    background-color: rgba(105, 105, 105, 0.8); /* Similar to the grey color in the image */
+    padding: 30px;
+    border-radius: 15px;
+    color: #fff;
+    margin: 50px auto;
+    max-width: 800px;
 }
 
 form {
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-margin-bottom: 5px;
-font-weight: bold;
+    margin-bottom: 5px;
+    font-weight: bold;
 }
 
 input, textarea {
-width: 100%;
-padding: 10px;
-margin-bottom: 20px;
-border: 1px solid #ccc;
-border-radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="tel"] {
-max-width: 100%;
-font-size: 1rem;
+    font-size: 1rem;
 }
 
 textarea {
-max-width: 100%;
-font-size: 1rem;
-resize: vertical;
+    resize: vertical;
 }
 
+/* Grid layout */
 .row {
-display: flex;
-flex-wrap: wrap;
-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.col-md-6,
-.col-md-10,
-.col-md-3 {
-flex: 1;
+.col-md-6, .col-md-10, .col-md-3 {
+    flex: 1;
 }
 
 .col-md-6 {
-flex-basis: calc(50% - 20px);
+    flex-basis: calc(50% - 20px);
 }
 
 .col-md-10 {
-flex-basis: calc(80% - 20px);
+    flex-basis: calc(80% - 20px);
 }
 
 .col-md-3 {
-flex-basis: calc(30% - 20px);
+    flex-basis: calc(30% - 20px);
 }
 
-/* Additional styles */
-.form-control {
-padding: 10px;
-border: 1px solid #ddd;
-border-radius: 5px;
-}
-
-.form-control:focus {
-border-color: #333;
+h1, h2, h3 {
+    color: #fff;
+    text-transform: uppercase;
 }
