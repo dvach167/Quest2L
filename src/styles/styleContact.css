@@ -30,7 +30,7 @@ h1, h2, h3 {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 0px;
 }
 
 nav {
@@ -46,7 +46,6 @@ nav a {
     font-weight: bold;
 }
 
-/* Main form section */
 .mainContent {
     background-color: rgba(105, 105, 105, 0.8); /* Similar to the grey color in the image */
     padding: 30px;
@@ -85,7 +84,6 @@ textarea {
     resize: vertical;
 }
 
-/* Grid layout */
 .row {
     display: flex;
     flex-wrap: wrap;
