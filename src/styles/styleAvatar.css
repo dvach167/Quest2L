@@ -1,16 +1,7 @@
 
 #questRanks {
     grid-row: 3;
-    display: flex;
-    position: absolute;
-    margin-top: px;
-
-    color: white;
-    background-color: #2b2b2a;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    align-items: center;
+   
 }
 
 
@@ -20,8 +11,10 @@
     grid-template-rows: 1fr 1fr 1fr;
 }
 .xpBox{
+    grid-row: 2;
     width: 100%;
     background-color: grey;
+    max-height: 40px;
 }
 .skill{
     text-align: right;
