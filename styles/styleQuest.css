@@ -27,6 +27,7 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+
 .quests-completed {
     position: absolute;
     bottom: 20px;
@@ -49,5 +50,62 @@ ul {
 
 li {
     margin-bottom: 8px;
-    font-size: 16px;
+    font-size: 15px;
+}
+img {
+    width: 40;  
+    height: 40;
+    margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+
+    .quests {
+        margin-right: 20px;
+    }
+
+    .quests-in-progress {
+        position: fixed;
+        padding: 20px;
+        padding-top: 20px;
+        left: 20px;
+        max-width: 300px;
+    }
+
+    .quests-completed {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        max-width: 300px;
+    }
+}
+
+/* Adjustments for Tablets */
+@media (min-width: 480px) and (max-width: 767px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quests {
+        max-width: 90%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Adjustments for Mobile Devices */
+@media (max-width: 479px) {
+    .quests {
+        max-width: 100%;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    li {
+        font-size: 14px;
+    }
+   
 }

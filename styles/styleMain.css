@@ -3,8 +3,15 @@
     margin: 0;
 }
 
-#mainBodyContent{
+body {
+    font-family: "Pixelify Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400px;
+    font-style: normal;
+}
 
+#mainBodyContent{
+    
 
 }
 .skip{
