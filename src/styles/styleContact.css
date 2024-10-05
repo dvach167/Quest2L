@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap');
 #mrunameHeader{
     display: block;
     text-align: left;
     
+}
+input{
+    font-family: "Pixelify sans";
+}
+input::placeholder{
+    font-family: "Pixelify sans";
 }
 .centeringtext{
     text-align: center !important;
@@ -101,3 +108,4 @@ h2, h3 {
     color: #fff;
     text-transform: uppercase;
 }
+
