@@ -49,13 +49,18 @@ ul {
 }
 
 li {
+    position: relative;  /* This allows the image to be positioned inside the li */
+    padding-right: 10px; /* Add some padding to the right for the image */
+    font-size: 16px;
     margin-bottom: 8px;
-    font-size: 15px;
 }
-img {
-    width: 40;  
-    height: 40;
-    margin-right: 10px;
+li img {
+    position: absolute;
+    right: 30;  /* Pushes the image to the right side of the li */
+    top: 50%;  /* Vertically centers the image */
+    transform: translateY(-70%);  /* Adjusts the centering */
+    width: 30px;  /* Adjust image size as needed */
+    height: 30px;
 }
 
 @media (min-width: 768px) {
