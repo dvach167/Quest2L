@@ -20,34 +20,25 @@
 body {
     font-family: 'Pixelify Sans', sans-serif;
     background-color: #f0f0f0;
-    color: #333;
+    color: black;
 }
 
 h1, h2, h3 {
     text-align: center;
 }
-
+h1{
+    color: #000;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0px;
 }
 
-nav {
-    background-color: #f8f9fa;
-    padding: 10px;
-    text-align: left;
-}
 
-nav a {
-    margin-right: 20px;
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-}
 
 .mainContent {
-    background-color: rgba(105, 105, 105, 0.8); /* Similar to the grey color in the image */
+    background-color: rgba(0, 0, 0, 0.8); 
     padding: 30px;
     border-radius: 15px;
     color: #fff;
@@ -106,7 +97,7 @@ textarea {
     flex-basis: calc(30% - 20px);
 }
 
-h1, h2, h3 {
+h2, h3 {
     color: #fff;
     text-transform: uppercase;
 }
