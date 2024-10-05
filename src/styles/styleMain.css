@@ -48,6 +48,10 @@ nav a:hover {
 }
 
 
+.mainPage {
+    grid-row: 3;
+}
+
 #avatarLink{
     grid-column: 1;
 }
