@@ -20,13 +20,15 @@
 body {
     font-family: 'Pixelify Sans', sans-serif;
     background-color: #f0f0f0;
-    color: #333;
+    color: black;
 }
 
 h1, h2, h3 {
     text-align: center;
 }
-
+h1{
+    color: #000;
+}
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -47,7 +49,7 @@ nav a {
 }
 
 .mainContent {
-    background-color: rgba(105, 105, 105, 0.8); /* Similar to the grey color in the image */
+    background-color: rgba(0, 0, 0, 0.8); 
     padding: 30px;
     border-radius: 15px;
     color: #fff;
@@ -106,7 +108,7 @@ textarea {
     flex-basis: calc(30% - 20px);
 }
 
-h1, h2, h3 {
+h2, h3 {
     color: #fff;
     text-transform: uppercase;
 }
