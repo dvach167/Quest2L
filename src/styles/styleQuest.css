@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body {
@@ -10,33 +11,26 @@ body {
 }
 
 .container {
-    width: 100vw;
-    height: 100vh;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between;  /* Aligns items on the left and right */
+    padding: 20px;
+    height: 100vh;
 }
 
-.quests-in-progress {
-    position: absolute;
-    left: 20px;
+.quests-in-progress,
+.quests-completed {
+    flex: 1;  /* Each div takes up equal space */
+    margin: 20px;
     color: white;
     background-color: #2b2b2a;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 
 .quests-completed {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-    background-color: #2b2b2a;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;  /* Optional for spacing between columns */
+    width: 50vh;
 }
 
 h2 {
@@ -65,10 +59,6 @@ li img {
 
 @media (min-width: 768px) {
 
-    .quests {
-        margin-right: 20px;
-    }
-
     .quests-in-progress {
         position: fixed;
         padding: 20px;
@@ -79,10 +69,16 @@ li img {
 
     .quests-completed {
         position: fixed;
-        bottom: 20px;
-        left: 20px;
-        max-width: 300px;
+        top: 20px;
+        right: 20px;
+        padding-top: 20px;
+        padding:20px;
+
+
+        
+       
     }
+    
 }
 
 /* Adjustments for Tablets */
