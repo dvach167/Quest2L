@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    
+  
 }
 
 body {
@@ -12,27 +11,26 @@ body {
 
 .container {
     display: flex;
-    justify-content: space-between;  /* Aligns items on the left and right */
+    flex-direction: column;  /* Stack items vertically */
+    align-items: center;     /* Center items horizontally */
+    justify-content: center;  /* Center items vertically */
     padding: 20px;
-    height: 100vh;
+    
 }
 
 .quests-in-progress,
 .quests-completed {
-    flex: 1;  /* Each div takes up equal space */
-    margin: 20px;
+    width: 75vh;  /* Set a width for both sections */
+    margin: 10px;  /* Vertical spacing between sections */
     color: white;
     background-color: #2b2b2a;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .quests-completed {
-    margin-left: 20px;  /* Optional for spacing between columns */
-    width: 50vh;
+    align-items: center;
 }
-
 h2 {
     margin-bottom: 10px;
     font-size: 20px;
@@ -41,7 +39,6 @@ h2 {
 ul {
     list-style-type: none;
 }
-
 li {
     position: relative;  /* This allows the image to be positioned inside the li */
     padding-right: 10px; /* Add some padding to the right for the image */
@@ -57,56 +54,3 @@ li img {
     height: 30px;
 }
 
-@media (min-width: 768px) {
-
-    .quests-in-progress {
-        position: fixed;
-        padding: 20px;
-        padding-top: 20px;
-        left: 20px;
-        max-width: 300px;
-    }
-
-    .quests-completed {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding-top: 20px;
-        padding:20px;
-
-
-        
-       
-    }
-    
-}
-
-/* Adjustments for Tablets */
-@media (min-width: 480px) and (max-width: 767px) {
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .quests {
-        max-width: 90%;
-        margin-bottom: 20px;
-    }
-}
-
-/* Adjustments for Mobile Devices */
-@media (max-width: 479px) {
-    .quests {
-        max-width: 100%;
-        padding: 15px;
-    }
-
-    h2 {
-        font-size: 18px;
-    }
-
-    li {
-        font-size: 14px;
-    }
-   
-}
