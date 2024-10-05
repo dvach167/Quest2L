@@ -1,7 +1,5 @@
 #mrunameHeader{
-    display: block;
-    text-align: left;
-    
+    align-items: flex-start;    
 }
 
 #questsHeader {
