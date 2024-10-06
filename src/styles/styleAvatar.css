@@ -95,6 +95,12 @@ li {
     left: -34px;
   }
 }
+body {
+    background-image: url('../Resources/ezgif.com-video-to-gif-converter.gif');
+    background-size: cover;
+    size: 50%;
+}
+
 
 strong { color: white; justify-content: left;}
 
