@@ -91,7 +91,7 @@ function getGrades(){
       const taskName = grades[i].GradeObjectName;
       const WeightedNumerator = grades[i].WeightedNumerator;
       const WeightedDenominator = grades[i].WeightedDenominator;
-      const Grade = grades[i].DisplayedGrade;http://127.0.0.1:5500/src/test.html
+      const Grade = grades[i].DisplayedGrade;
 
       // Check if grade is not a category
       if (grades[i].GradeObjectTypeName != "Category") {
