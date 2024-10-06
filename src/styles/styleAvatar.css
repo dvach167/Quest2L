@@ -15,8 +15,10 @@
 
 body {
     background-image: url('../Resources/ezgif.com-video-to-gif-converter.gif');
-    background-size: cover;   
-    size: 25%;
+    background-size: cover; 
+    background-position: center;
+    background-position-y: -275px;
+    background-repeat: no-repeat;
 
 }
 
@@ -25,6 +27,8 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    position: relative;
+    top: 30px;
 }
 
 .xpBox{
