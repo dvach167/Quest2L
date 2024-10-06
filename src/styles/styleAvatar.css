@@ -19,6 +19,11 @@
     width: 100%;
     background-color: grey;
     max-height: 40px;
+    border-width: 10px;
+    position: relative;
+    overflow: hidden;
+    margin: 3px;
+    border: 2px solid black;
 }
 .skill{
     text-align: right;
@@ -31,7 +36,20 @@
     background-color: green;
 }
 
-
+span{
+    position:absolute;
+    height: 100%;
+    border-radius: 10px;
+    transform: scale(0);
+    animation: animate 1s cubic-bezier(1, 0, 0.5, 1);
+    
+}
+@keyframes animate {
+    100%{
+        transform: scale(1);
+    }
+    
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 

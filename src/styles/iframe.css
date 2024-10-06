@@ -1,0 +1,40 @@
+#quest2l-container, #quest2l-drag, #quest2l-iframe {
+    box-sizing: border-box;
+    z-index: 999999;
+}
+
+#quest2l-container {
+    background-color: #fff;
+    text-align: center;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #000;
+
+    position: fixed;
+    width: 50vw;
+    height: 70vh;
+    overflow: hidden;
+
+    top: 20vh;
+    left: 10vw;
+
+    display: grid;
+    grid-template-rows: min-content auto;
+    transition: visibility 0.2s, opacity 0.2s linear;
+
+}
+
+#quest2l-container-header {
+    z-index: 9999999;
+    cursor: move;
+    background-color: #333;
+    color: #fff;
+    border-bottom: solid;
+    border-width: 3px;
+    border-color: #000;
+}
+
+#quest2l-iframe {
+    width: 100%;
+    height: 100%;
+}

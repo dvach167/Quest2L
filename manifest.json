@@ -1,0 +1,29 @@
+{
+    "name":"Quest2L",
+    "description":"",
+    "version":"1",
+    "manifest_version":3,
+    "permissions": [
+        "activeTab",
+        "scripting",
+        "nativeMessaging"
+    ],
+    "content_scripts": [
+        {
+        "matches": ["*://*/*"],
+        "js": ["content-script.js"]
+        }
+    ],
+    "action": {
+
+    },
+    "background": {
+        "service_worker": "service-worker.js"
+    },
+    "web_accessible_resources": [
+        {
+        "resources": ["src/*"],
+        "matches": ["<all_urls>"]
+        }
+    ]
+}
