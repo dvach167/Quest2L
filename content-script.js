@@ -2,8 +2,6 @@ var BASE_URL = ""
 
 function apiGet(callback, apiUrl) {
     var xmlHttp = new XMLHttpRequest();
-    console.error(BASE_URL)
-    console.error(apiUrl)
     xmlHttp.open("GET", BASE_URL + "/api/" + apiUrl, true);
     xmlHttp.send(null);
 
@@ -85,6 +83,7 @@ async function main() {
 }
 
 function onMessage(event) {
+    event.stopImmediatePropagation();
     if (!event.origin.startsWith("chrome-extension://")) {
         return;
     }
