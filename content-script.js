@@ -8,6 +8,8 @@ function apiGet(callback, apiUrl) {
     xmlHttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             callback(this.responseText)
+        } else if (this.status != 200) {
+            console.error(this)
         }
     }
 }
@@ -91,14 +93,12 @@ function onMessage(event) {
     var data = event.data;
 
     if (data.func == "apiGet") {
-        apiGet(returnMessage, data.args[0])
+        apiGet(function(retValue) {
+            var ifrm = document.getElementById("quest2l-iframe")
+
+            ifrm.contentWindow.postMessage({"id": data.id, "retValue": retValue}, "*");
+        }, data.args[0])
     }
-}
-
-function returnMessage(retValue) {
-    var ifrm = document.getElementById("quest2l-iframe")
-
-    ifrm.contentWindow.postMessage({"retValue": retValue}, "*");
 }
 
 window.addEventListener("message", onMessage, false);

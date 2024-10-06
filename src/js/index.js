@@ -1,6 +1,9 @@
-var TOTAL_GRADE = 0
-var TOTAL_GRADE_MAX = 0
+var TOTAL_GRADE = 0.0
+var TOTAL_GRADE_MAX = 0.0
 var TOTAL_GRADE_COUNT = 0
+var percent = 80
+
+var AVATAR_MAP = [[0, "peasant.png"], [20, "farmer.png"], [40, "baseknight.png"], [60, "kingsguard.png"], [70, "Level 70 Knight.png"], [85, "godknight.png"]]
 
 function main() {
     apiGet(whoami_callback, "lp/1.47/users/whoami")
@@ -65,8 +68,8 @@ function myenrollments_callback(jsonString) {
                 var myGrades = data[0]
 
                 for (var i = 0; i < json.length; i++) {
-                    var max_grade = json[i]["Weight"]
-                    var grade = 0
+                    var max_grade = parseFloat(json[i]["Weight"])
+                    var grade = 0.0
 
                     for (var j = 0; j < myGrades.length; j++) {
                         if (myGrades[j]["GradeObjectTypeName"] != "Numeric") {
@@ -74,7 +77,8 @@ function myenrollments_callback(jsonString) {
                         }
 
                         if (myGrades[j]["GradeObjectIdentifier"] == json[i]["Id"]) {
-                            grade = (myGrades[j]["PointsNumerator"] / myGrades[j]["PointsDenominator"]) * json[i]["Weight"]
+                            console.log(myGrades[j]["GradeObjectName"])
+                            grade = (parseFloat(myGrades[j]["PointsNumerator"]) / parseFloat(myGrades[j]["PointsDenominator"])) * parseFloat(json[i]["Weight"])
                             break
                         }
 
@@ -85,7 +89,7 @@ function myenrollments_callback(jsonString) {
 
                 }
 
-                updateEP()
+                updateXP()
 
 
             }, "le/1.79/" + classId + "/grades/", [json])
@@ -103,10 +107,29 @@ function myenrollments_callback(jsonString) {
     }
 }
 
-function updateEP() {
+function updateXP() {
     console.log(TOTAL_GRADE)
     console.info(TOTAL_GRADE_MAX)
     console.error(TOTAL_GRADE_COUNT)
+
+    // var percent = (TOTAL_GRADE / TOTAL_GRADE_MAX) * 100.0
+    console.log(percent)
+
+    var bar = document.getElementById("xpBar-bar")
+    bar.style.width = Math.round(percent) + "%"
+    bar.innerHTML = Math.round(percent) + "%"
+
+
+    var avatar = ""
+    for (var i = AVATAR_MAP.length - 1; i >=0; i--) {
+        if (percent >= AVATAR_MAP[i][0]) {
+            avatar = AVATAR_MAP[i][1]
+            break
+        }
+    }
+
+    document.getElementById("avatarImg").src = "Resources/" + avatar
+
 
 }
 
