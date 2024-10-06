@@ -98,13 +98,6 @@ li {
 
 strong { color: white; justify-content: left;}
 
-ol.alternating-colors { 
-  /* li:nth-child(1):before { }
-  li:nth-child(2):before { border-color: green; grid-column: 1;}
-  li:nth-child(3):before { border-color: yellow;grid-column: 1;}
-  li:nth-child(4):before { border-color: red; grid-column: 2;}
-  li:nth-child(5):before { border-color: red; grid-column: 2;} */
-}
 
 .classGrid-green:before {
     border-color: green; 
