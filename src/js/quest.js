@@ -1,5 +1,5 @@
 function main() {
-    apiGet(whoami_callback, "lp/1.47/users/whoami")
+    apiGet(whoami_callback, "lp/1.47/users/whoami");
     apiGet(myenrollments_callback, "lp/1.47/enrollments/myenrollments/?orgUnitTypeId=3&isActive=true&canAccess=true");
 }
 
@@ -12,40 +12,54 @@ function myenrollments_callback(jsonString) {
     var json = parseApi(jsonString)["Items"];
     var classList = getClassList(json);
 
-    // Loop over the class list
+    // Loop over the class list and fetch grades for each class
     for (let i = 0; i < classList.length; i++) {
-        let classId = classList[i][0];  // Use `let` to keep scope within this iteration
+        let classId = classList[i][0];
         let className = classList[i][1];
 
         console.log(className + " " + classId);
-        
-        // Fetch class-specific data
-        apiGet(quests_callback, `le/1.47/${classId}/calendar/events/`);
+
+        // Fetch class-specific grade data
+        apiGet((gradeJson) => quests_callback(gradeJson, classId), `le/1.47/${classId}/grades/`);
     }
 }
 
-function quests_callback(jsonString) {
+function quests_callback(jsonString, classId) {
     var json = parseApi(jsonString);
     let taskTitles = [];
 
-    // Assuming json contains a task array
-    if (json && json.length > 0) {
-        for (let i = 0; i < 4; i++) {
-            var taskTitle = json[i].Title;
-            console.log(taskTitle);
+    if (json && Array.isArray(json)) {
+        // Limit loop to avoid undefined values if json array is smaller than 4
+        for (let i = 0; i < Math.min(4, json.length); i++) {
+            let taskTitle = json[i].Name;
+            let taskId = json[i].Id;
 
-            if ((taskTitle != undefined || taskTitle != null) && !taskTitles.includes(taskTitle)) {
+            // Ensures no duplicates in taskTitles
+            if (taskTitle && !taskTitles.includes(taskTitle)) {
                 taskTitles.push(taskTitle);
-            } 
+            }
 
-            var li = document.createElement('li')
-            li.appendChild(document.createTextNode(taskTitles[i]))
-            document.getElementById("quests").appendChild(li)
+            // Append each task to list in HTML
+            var li = document.createElement('li');
+            li.appendChild(document.createTextNode(taskTitle));
+            document.getElementById("quests").appendChild(li);
         }
 
+        
+        // Log grade identifiers for verification
+        for (let i = 0; i < Math.min(4, json.length); i++) {
+            if (json[0].GradeObjectIdentifier === taskTitles[i]) {
+                var gradeExists = false;
+                if (json[i].WeightedNumerator) {
+                    gradeExists = true;
+                }
+            }
+        }
+       
     }
 }
 
+// Load API dependencies
 var apiReqScript = document.createElement('script');
 apiReqScript.src = "../api/api_http_req.js";
 document.head.appendChild(apiReqScript);
