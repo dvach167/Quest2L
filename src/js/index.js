@@ -6,7 +6,7 @@ var AVATAR_MAP = [[0, "peasant.png"], [20, "farmer.png"], [40, "baseknight.png"]
 
 function main() {
     apiGet(whoami_callback, "lp/1.47/users/whoami")
-    apiGet(myenrollments_callback, "lp/1.47/enrollments/myenrollments/?orgUnitTypeId=3&isActive=true&canAccess=true")
+    apiGet(myenrollments_callback, "lp/1.47/enrollments/myenrollments/?orgUnitTypeId=3&isActive=true&canAccess=true&sortBy=-StartDate")
 
 }
 
@@ -112,14 +112,14 @@ function updateXP() {
     // console.error(TOTAL_GRADE_COUNT)
 
     var percent = (TOTAL_GRADE / TOTAL_GRADE_MAX) * 100.0
-    console.log(percent)
+    // console.log(percent)
 
     var bar = document.getElementById("xpBar-bar")
     bar.style.width = Math.round(percent) + "%"
     bar.innerHTML = Math.round(percent) + "%"
 
-    var avatar = ""
-    for (var i = AVATAR_MAP.length - 1; i >=0; i--) {
+    var avatar = AVATAR_MAP[0][1]
+    for (var i = AVATAR_MAP.length - 1; i >= 0; i--) {
         if (percent >= AVATAR_MAP[i][0]) {
             avatar = AVATAR_MAP[i][1]
             break
