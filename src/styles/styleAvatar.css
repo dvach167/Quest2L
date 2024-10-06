@@ -75,7 +75,9 @@ li {
 strong { color: white; }
 
 ol.alternating-colors { 
-  li:nth-child(odd):before { border-color: red; }
-  li:nth-child(even):before { border-color: yellow; }
+  li:nth-child(1):before { border-color: green; }
+  li:nth-child(2):before { border-color: green; }
+  li:nth-child(3):before { border-color: yellow; }
+  li:nth-child(4):before { border-color: red; }
 }
 
