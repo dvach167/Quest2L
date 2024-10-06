@@ -1,7 +1,18 @@
 
 #questRanks {
     grid-row: 3;
-   
+    width: 75vh;  /* Set a width for both sections */
+    color: white;
+    background-color: #2b2b2a;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    background-color: #2b2b2a;
+    height: 100%; /* Ensure the grid item fills the grid box height */
+    width: 100%; /* Ensure the grid item fills the grid box width */
 }
 
 
@@ -26,3 +37,45 @@
     width: 50%;
     background-color: green;
 }
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+* { 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  letter-spacing: -0.25px;
+}
+
+ol { padding-left: 50px; }
+li { 
+  color: white; 
+  padding-left: 16px;
+  margin-top: 24px;
+  position: relative;
+  font-size: 16px;
+  line-height: 20px;
+  
+  &:before {
+    content: '';
+    display: block;
+    height: 42px;
+    width: 42px;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    position: absolute; 
+    top: -12px;
+    left: -46px;
+  }
+}
+
+strong { color: white; }
+
+ol.alternating-colors { 
+  li:nth-child(odd):before { border-color: red; }
+  li:nth-child(even):before { border-color: yellow; }
+}
+
