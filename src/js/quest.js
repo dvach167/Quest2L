@@ -21,6 +21,8 @@ function myenrollments_callback(jsonString) {
 
         // Fetch class-specific grade data
         apiGet((gradeJson) => quests_callback(gradeJson, classId), `le/1.47/${classId}/grades/`);
+        apiGet((gradeJson) => quests_callback(gradeJson, classId), `le/1.47/${classId}/grades/values/myGradeValues/`);
+
     }
 }
 
@@ -45,16 +47,18 @@ function quests_callback(jsonString, classId) {
             document.getElementById("quests").appendChild(li);
         }
 
-        
+        // file 2
+        var json2 = parseApi(jsonString);
+        let completedTasks = [];
         // Log grade identifiers for verification
-        for (let i = 0; i < Math.min(4, json.length); i++) {
-            if (json[0].GradeObjectIdentifier === taskTitles[i]) {
-                var gradeExists = false;
-                if (json[i].WeightedNumerator) {
-                    gradeExists = true;
-                }
+        for (let i = 0; i < json.length; i++) {
+            if (json[i].PointsNumerator > 0) {
+                completedTasks.push(json[i].GradeObjectIdentifier);
             }
         }
+
+        // Log completed tasks for verification
+        console.log(completedTasks);
        
     }
 }
