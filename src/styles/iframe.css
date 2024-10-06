@@ -15,8 +15,8 @@
     height: 70vh;
     overflow: hidden;
 
-    top: 20vh;
-    left: 10vw;
+    top: 15vh;
+    left: 25vw;
 
     display: grid;
     grid-template-rows: min-content auto;
@@ -32,6 +32,18 @@
     border-bottom: solid;
     border-width: 3px;
     border-color: #000;
+}
+
+#quest2l-container-close {
+    position: absolute;
+    z-index: 99999999;
+    cursor: pointer;
+    background-color: #555;
+    color: #fff;
+    top: 0px;
+    right: 0px;
+    margin: auto 0px;
+    padding: 0px 10px;
 }
 
 #quest2l-iframe {
