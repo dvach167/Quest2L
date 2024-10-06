@@ -39,7 +39,7 @@ function getClasses() {
     classes = data; // Assign fetched data to classes
     for (let i = 0; i < classes.Items.length; i++) {
       // Check if user has access to
-      let item = classes.Items[i];
+      const item = classes.Items[i];
       if (item.Access.CanAccess === true && item.Access.LastAccessed != null && item.Access.StartDate != null) {
 
         // Check if class is already in array
@@ -74,6 +74,10 @@ function getClasses() {
 
 // Declare grades variable to store JSON data
 function getGrades(){
+  // Declare grades variable to store JSON data
+  let userGrades = [];
+
+  // Fetch grades JSON
   fetch(userGradesPath)
   .then(response => {
     if (!response.ok) {
@@ -83,15 +87,45 @@ function getGrades(){
   })
   .then(data => {
     grades = data;
-    console.log(grades);
-    for (let i = 0; i < grades.Items.length; i++) {
-      let item = grades.Items[i];
-      console.log(item);
+    for (let i = 0; i < grades.length; i++) {
+      const taskName = grades[i].GradeObjectName;
+      const WeightedNumerator = grades[i].WeightedNumerator;
+      const WeightedDenominator = grades[i].WeightedDenominator;
+      const Grade = grades[i].DisplayedGrade;http://127.0.0.1:5500/src/test.html
+
+      // Check if grade is not a category
+      if (grades[i].GradeObjectTypeName != "Category") {
+        let gradePer =  WeightedNumerator / WeightedDenominator;
+
+        // Add grades to userGrades array
+        userGrades.push({
+          taskName: taskName,
+          WeightedNumerator: WeightedNumerator,
+          WeightedDenominator: WeightedDenominator,
+          Grade: Grade,
+          gradePer: Math.round((WeightedNumerator / WeightedDenominator) * 100)
+        });
+      }
     }
+
+    let totalMark = 0;
+    let totalWeight = 0;
+    for (let i = 0; i < userGrades.length; i++){
+      totalMark += userGrades[i].WeightedNumerator;
+      totalWeight += userGrades[i].WeightedDenominator;
+    }
+    let actualMark = Math.round((totalMark / totalWeight) * 100);
+
+    // Display grades in console
+    console.log(userGrades);
+    
+    return actualMark;
   })
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
   });
+
+  return null;
 }
 
 
