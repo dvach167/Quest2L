@@ -40,6 +40,8 @@ h2 {
 
 ul {
     list-style-type: none;
+    padding-left: 20px;
+
 }
 li {
     position: relative;  /* This allows the image to be positioned inside the li */
