@@ -30,7 +30,9 @@ function getClassList(json) {
     var classList = []
 
     for (var i = 0; i < json.length; i++) {
-        classList.push([json[i]["OrgUnit"]["Id"], json[i]["OrgUnit"]["Name"], json[i]["OrgUnit"]["HomeUrl"]])
+        if (json[i]["Access"]["StartDate"] != null) {
+            classList.push([json[i]["OrgUnit"]["Id"], json[i]["OrgUnit"]["Name"], json[i]["OrgUnit"]["HomeUrl"]])
+        }
     }
 
     return classList
