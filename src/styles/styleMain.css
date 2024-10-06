@@ -21,10 +21,6 @@ body {
 }
 
 .wrapper {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-
 }
 
 #nav {
@@ -33,6 +29,7 @@ body {
     grid-row: 1;
     background-color: #333;
     overflow: hidden;
+    max-height: 80px;
 }
 
 nav a {
@@ -59,10 +56,6 @@ nav a:hover {
 
 
 
-
-.mainPage {
-    grid-row: 3;
-}
 
 #avatarLink{
     grid-column: 1;
