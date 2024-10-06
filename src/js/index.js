@@ -8,6 +8,12 @@ function main() {
     apiGet(whoami_callback, "lp/1.47/users/whoami")
     apiGet(myenrollments_callback, "lp/1.47/enrollments/myenrollments/?orgUnitTypeId=3&isActive=true&canAccess=true&sortBy=-StartDate")
 
+    debugReceive(function(xpValue) {
+        TOTAL_GRADE = xpValue
+        TOTAL_GRADE_MAX = 100
+        updateXP()
+    }, "DEBUG-setXp")
+
 }
 
 function whoami_callback(jsonString) {

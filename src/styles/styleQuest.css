@@ -52,10 +52,10 @@ li {
     height: auto;
 }
 li img {
-    position: absolute;
-    right: 30;  /* Pushes the image to the right side of the li */
-    top: 50%;  /* Vertically centers the image */
-    transform: translateY(-70%);  /* Adjusts the centering */
+/*     position: absolute; */
+/*     right: 30;  /* Pushes the image to the right side of the li  */
+/*     top: 50%;  /* Vertically centers the image  */
+/*     transform: translateY(-70%);  /* Adjusts the centering  */
     width: 30px;  /* Adjust image size as needed */
     height: 30px;
 }

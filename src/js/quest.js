@@ -20,41 +20,66 @@ function myenrollments_callback(jsonString) {
         console.log(className + " " + classId);
 
         // Fetch class-specific grade data
-        apiGet((gradeJson) => quests_callback(gradeJson, classId), `le/1.47/${classId}/grades/`);
+        apiGetData(quests_callback, `le/1.47/${classId}/grades/`, [classId, className]);
+
     }
 }
 
-function quests_callback(jsonString, classId) {
+function quests_callback(jsonString, data) {
     var json = parseApi(jsonString);
+    var classId = data[0]
+    var className = data[1]
     let taskTitles = [];
 
     if (json && Array.isArray(json)) {
-        // Limit loop to avoid undefined values if json array is smaller than 4
-        for (let i = 0; i < Math.min(4, json.length); i++) {
-            let taskTitle = json[i].Name;
-            let taskId = json[i].Id;
 
-            // Ensures no duplicates in taskTitles
-            if (taskTitle && !taskTitles.includes(taskTitle)) {
-                taskTitles.push(taskTitle);
-            }
+        apiGetData(function(jsonString, data) {
+            var json = parseApi(jsonString);
+            var availableGrades = data[0]
+            var className = data[1]
+            var count = 0
 
-            // Append each task to list in HTML
-            var li = document.createElement('li');
-            li.appendChild(document.createTextNode(taskTitle));
-            document.getElementById("quests").appendChild(li);
-        }
-
-        
-        // Log grade identifiers for verification
-        for (let i = 0; i < Math.min(4, json.length); i++) {
-            if (json[0].GradeObjectIdentifier === taskTitles[i]) {
-                var gradeExists = false;
-                if (json[i].WeightedNumerator) {
-                    gradeExists = true;
+            for (var i = 0; i < availableGrades.length; i++) {
+                if (count > 4) {
+                    break
                 }
+                if (availableGrades[i]["GradeType"] != "Numeric" ||
+                    availableGrades[i]["AssociatedTool"] == null
+                ) {
+                    continue
+                }
+                var gradeCompleted = false
+
+                for (var j = 0; j < json.length; j++) {
+                    if (availableGrades[i]["Id"] == json[j]["GradeObjectIdentifier"]) {
+                        console.log(parseFloat(json[j]["PointsNumerator"]))
+                        if (parseFloat(json[j]["PointsNumerator"]) > 0.0) {
+                            gradeCompleted = true
+                        }
+                        break
+                    }
+                }
+
+                var li = document.createElement('li');
+                li.innerHTML = availableGrades[i]["Name"]
+
+                if (gradeCompleted) {
+                    var img = document.createElement("img")
+                    img.src = "../Resources/Check Mark.png"
+                    li.appendChild(img)
+                    document.getElementById("quests-completed").appendChild(li);
+                } else {
+                    document.getElementById("quests").appendChild(li);
+                }
+
+                li.innerHTML += "<br>(" + className + ")"
+
+                count++
+
             }
-        }
+
+
+        }, `le/1.47/${classId}/grades/values/myGradeValues/`, [json, className]);
        
     }
 }
