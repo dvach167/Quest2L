@@ -14,17 +14,12 @@
 }
 
 body {
-    
+    background-image: url('../Resources/ezgif.com-video-to-gif-converter.gif');
+    background-size: cover;   
     size: 25%;
 
 }
 
-.container {
-    background-image: url('../Resources/ezgif.com-video-to-gif-converter.gif');
-    background-size: cover;
-    size: 50%;
-    position: relative;
-}
 
 #avatarDisplay img {
     display: block;
