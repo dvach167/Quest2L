@@ -88,6 +88,10 @@ async function main() {
     dragScript.setAttribute('src',chrome.runtime.getURL("src/js/drag_box.js"));
     document.head.appendChild(dragScript);
 
+    var testScript = document.createElement('script');
+    testScript.setAttribute('src',chrome.runtime.getURL("src/js/test.js"));
+    document.head.appendChild(testScript);
+
 
     var ifrm = document.createElement("iframe");
     ifrm.setAttribute("src", "about:blank");
@@ -137,6 +141,8 @@ function onMessage(event) {
         }, data.args[0])
     }
 }
+
+
 
 window.addEventListener("message", onMessage, false);
 main()

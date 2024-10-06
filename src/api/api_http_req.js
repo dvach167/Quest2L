@@ -40,6 +40,15 @@ function apiGetData(callback, apiUrl, data) {
     }, "*")
 }
 
+function debugReceive(callback, id) {
+    window.addEventListener("message", function eventHandler(event) {
+        if (event.data.id == id) {
+            event.stopImmediatePropagation();
+            callback(event.data.retValue)
+        }
+    });
+}
+
 function hashCode(string) {
     var hash = 0,
     i, chr;
