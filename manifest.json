@@ -14,6 +14,9 @@
         "js": ["content-script.js"]
         }
     ],
+    "icons": {
+        "150": "icon.png"
+    },
     "action": {
 
     },
