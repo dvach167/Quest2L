@@ -22,7 +22,7 @@
     border-width: 10px;
     position: relative;
     overflow: hidden;
-    margin: 3px;
+    margin-right:6px;
     border: 2px solid black;
 }
 .skill{
