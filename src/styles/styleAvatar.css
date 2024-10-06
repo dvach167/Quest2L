@@ -15,7 +15,11 @@
     width: 100%; /* Ensure the grid item fills the grid box width */
 }
 
-
+.container{
+    border: 5px;
+    border-width: 5px;
+    border-color: black;
+}
 .xpBox{
     grid-row: 2;
     width: 100%;
@@ -29,7 +33,7 @@
     padding-bottom: 10px;
 }
 .xp{
-    width: 50%;
+    width: 90%;
     background-color: green;
 }
 
