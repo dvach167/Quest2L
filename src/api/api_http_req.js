@@ -1,40 +1,46 @@
 function apiGet(callback, apiUrl) {
-    window.addEventListener("message", function(event) {
-        if (event.data.id == apiUrl) {
-            callback(event.data.retValue)
+    var id = hashCode(apiUrl)
+    window.addEventListener("message", function eventHandler(event) {
+        if (event.data.id == id) {
+            // console.log("Event " + id + " ran")
             event.stopImmediatePropagation();
+            callback(event.data.retValue)
+            this.removeEventListener('message', eventHandler);
+
         } else {
-            console.error("Got wrong id: " + event.data.id + ", should be: " + apiUrl)
-            window.addEventListener("message", this, { once: true })
+            // console.error("Event got wrong id: " + event.data.id + ", should be: " + id)
         }
-    }, { once: true });
+    });
 
     window.parent.postMessage({
         "func": "apiGet",
         "args": [apiUrl],
-        "id": apiUrl
+        "id": id
     }, "*")
 }
 
 function apiGetData(callback, apiUrl, data) {
-    window.addEventListener("message", function(event) {
-        if (event.data.id == apiUrl) {
-            callback(event.data.retValue, data)
+    var id = hashCode(apiUrl)
+    window.addEventListener("message", function eventHandler(event) {
+        if (event.data.id == id) {
+            // console.log("Event " + id + " ran")
             event.stopImmediatePropagation();
+            callback(event.data.retValue, data)
+            this.removeEventListener('message', eventHandler);
+
         } else {
-            console.error("Got wrong id: " + event.data.id + ", should be: " + apiUrl)
-            window.addEventListener("message", this, { once: true })
+            // console.error("Event got wrong id: " + event.data.id + ", should be: " + id)
         }
-    }, { once: true });
+    });
 
     window.parent.postMessage({
         "func": "apiGet",
         "args": [apiUrl],
-        "id": apiUrl
+        "id": id
     }, "*")
 }
 
-function hash(string) {
+function hashCode(string) {
     var hash = 0,
     i, chr;
     if (string.length === 0) return hash;

@@ -1,7 +1,6 @@
 var TOTAL_GRADE = 0.0
 var TOTAL_GRADE_MAX = 0.0
 var TOTAL_GRADE_COUNT = 0
-var percent = 80
 
 var AVATAR_MAP = [[0, "peasant.png"], [20, "farmer.png"], [40, "baseknight.png"], [60, "kingsguard.png"], [70, "Level 70 Knight.png"], [85, "godknight.png"]]
 
@@ -59,7 +58,7 @@ function myenrollments_callback(jsonString) {
                 li.classList.add("classGrid-green");
             } else if (grade > 60.0) {
                 li.classList.add("classGrid-yellow");
-            } else {
+            } else if (grade > 0.0) {
                 li.classList.add("classGrid-red");
             }
 
@@ -77,7 +76,7 @@ function myenrollments_callback(jsonString) {
                         }
 
                         if (myGrades[j]["GradeObjectIdentifier"] == json[i]["Id"]) {
-                            console.log(myGrades[j]["GradeObjectName"])
+                            // console.log(myGrades[j]["GradeObjectName"])
                             grade = (parseFloat(myGrades[j]["PointsNumerator"]) / parseFloat(myGrades[j]["PointsDenominator"])) * parseFloat(json[i]["Weight"])
                             break
                         }
@@ -98,27 +97,26 @@ function myenrollments_callback(jsonString) {
 
 
 
-        var strong = document.createElement('strong');
-        strong.innerHTML = className
+        var p = document.createElement('p');
+        p.innerHTML = className
 
-        li.appendChild(strong)
+        li.appendChild(p)
 
         classGrid.appendChild(li)
     }
 }
 
 function updateXP() {
-    console.log(TOTAL_GRADE)
-    console.info(TOTAL_GRADE_MAX)
-    console.error(TOTAL_GRADE_COUNT)
+    // console.log(TOTAL_GRADE)
+    // console.info(TOTAL_GRADE_MAX)
+    // console.error(TOTAL_GRADE_COUNT)
 
-    // var percent = (TOTAL_GRADE / TOTAL_GRADE_MAX) * 100.0
+    var percent = (TOTAL_GRADE / TOTAL_GRADE_MAX) * 100.0
     console.log(percent)
 
     var bar = document.getElementById("xpBar-bar")
     bar.style.width = Math.round(percent) + "%"
     bar.innerHTML = Math.round(percent) + "%"
-
 
     var avatar = ""
     for (var i = AVATAR_MAP.length - 1; i >=0; i--) {
