@@ -14,16 +14,40 @@ function apiGet(callback, apiUrl) {
     }
 }
 
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+
 function toggleContainer() {
     var x = document.getElementById("quest2l-container");
     if (x.style.visibility === "visible") {
         x.style.visibility = "hidden";
         x.style.opacity = "0";
+        setCookie("q2l_state", "0", 7)
 
     } else {
         x.style.visibility = "visible";
         x.style.opacity = "1";
-
+        setCookie("q2l_state", "1", 7)
     }
 }
 
@@ -73,14 +97,27 @@ async function main() {
     dragDiv.id = "quest2l-container-header"
     dragDiv.innerHTML = "Click here to move"
 
+    var closeDiv = document.createElement("div");
+    closeDiv.id = "quest2l-container-close"
+    closeDiv.innerHTML = "X"
+    closeDiv.addEventListener("click", toggleContainer)
+    dragDiv.appendChild(closeDiv)
+
     var ifrmDiv = document.createElement("div");
     ifrmDiv.id = "quest2l-container"
     ifrmDiv.style = "visibility:hidden;opacity:0"
     ifrmDiv.appendChild(dragDiv)
+
     ifrmDiv.appendChild(ifrm)
 
     document.body.appendChild(ifrmDiv)
     ifrm.src = chrome.runtime.getURL("src/index.html")
+
+    if (getCookie("q2l_state") == "") {
+        setCookie("q2l_state", "0", 7)
+    } else if (getCookie("q2l_state") == "1") {
+        toggleContainer()
+    }
 
 }
 
