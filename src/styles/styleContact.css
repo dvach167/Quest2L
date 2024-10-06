@@ -31,7 +31,11 @@ body {
     font-family: 'Pixelify Sans', sans-serif;
     background-color: #f0f0f0;
     color: black;
+    background-image: url("../Resources/idyllic_countryside_cottages_pixelart_by_midgptjourney_dfvdfzd-414w-2x.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
 
 h1, h2, h3 {
     text-align: center;
