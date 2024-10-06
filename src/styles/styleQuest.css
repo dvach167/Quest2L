@@ -40,9 +40,11 @@ ul {
 }
 li {
     position: relative;  /* This allows the image to be positioned inside the li */
-    padding-right: 10px; /* Add some padding to the right for the image */
     font-size: 16px;
     margin-bottom: 8px;
+    list-style-type: square;
+    left: 40px;
+    max-width: 350px;
 }
 li img {
     position: absolute;
@@ -53,3 +55,11 @@ li img {
     height: 30px;
 }
 
+@media screen and (min-width: 800px) {
+    .container {
+        flex-direction: row;
+        align-items: center;     /* Center items horizontally */
+
+    }
+
+}
