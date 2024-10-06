@@ -13,9 +13,10 @@ body {
     display: flex;
     flex-direction: column;  /* Stack items vertically */
     align-items: center;     /* Center items horizontally */
-    justify-content: center;  /* Center items vertically */
+    justify-content: top;  /* Center items vertically */
     padding: 20px;
-    background-image: url(../Resources/ia4k1lbontrb1.jpg);
+    background-image: url(../Resources/ia4k1lbontrb1.png);
+    background-position: cover;
     /* Image created by https://www.reddit.com/r/inkarnate/comments/16y2ato/quest_board_wip/ */
 }
 
@@ -47,6 +48,8 @@ li {
     list-style-type: square;
     left: 40px;
     max-width: 350px;
+    align-items: flex-end;
+    height: auto;
 }
 li img {
     position: absolute;
