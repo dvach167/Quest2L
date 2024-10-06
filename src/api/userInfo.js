@@ -63,13 +63,14 @@ function getClasses() {
       }
     }
 
-    // Display classes in console
-    console.log(userClasses);
+    return userClasses;
 
   })
   .catch(error => {
     console.error('There was a problem with the fetch operation:', error);
   });
+
+  return null;
 }
 
 // Declare grades variable to store JSON data
