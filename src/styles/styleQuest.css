@@ -15,6 +15,8 @@ body {
     align-items: center;     /* Center items horizontally */
     justify-content: center;  /* Center items vertically */
     padding: 20px;
+    background-image: url(../Resources/ia4k1lbontrb1.jpg);
+    /* Image created by https://www.reddit.com/r/inkarnate/comments/16y2ato/quest_board_wip/ */
 }
 
 .quests-in-progress,
@@ -40,9 +42,11 @@ ul {
 }
 li {
     position: relative;  /* This allows the image to be positioned inside the li */
-    padding-right: 10px; /* Add some padding to the right for the image */
     font-size: 16px;
     margin-bottom: 8px;
+    list-style-type: square;
+    left: 40px;
+    max-width: 350px;
 }
 li img {
     position: absolute;
@@ -53,3 +57,11 @@ li img {
     height: 30px;
 }
 
+@media screen and (min-width: 800px) {
+    .container {
+        flex-direction: row;
+        align-items: center;     /* Center items horizontally */
+
+    }
+
+}
