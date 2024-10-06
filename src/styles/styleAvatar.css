@@ -13,6 +13,16 @@
     width: 100%; /* Ensure the grid item fills the grid box width */
 }
 
+#avatarDisplay img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+#avatarDisplay {
+
+}
 
 .xpBox{
     grid-row: 2;
