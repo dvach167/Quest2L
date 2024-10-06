@@ -4,8 +4,13 @@
     box-sizing: border-box;
 }
 
+html::-webkit-scrollbar {
+    display: none;
+}
+
 html {
-    overflow-y: hidden;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
 body {
